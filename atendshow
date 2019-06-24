@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<h2>ALL MEMBERS</h2>
+
+
+</head>
+<body>
+	<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Email</th>
+    <th>Gender</th>
+    <th>City</th>
+  </tr>
+  <tr>
+    <td id="name"></td>
+    <td id="age"></td>
+    <td id="email"></td>
+    <td id="gender"></td>
+    <td id="city"></td>
+  </tr>
+</table>
+<script type="text/javascript">
+
+  let data = localStorage.getItem('user');
+
+    let array =JSON.parse(data);
+
+      array.sort(function(a,b){
+        return a.age - b.age;  
+  });
+
+  console.log(array);    
+
+  array.map(function(v){
+
+  let name = document.getElementById('name');
+  name.innerHTML = v.name;
+
+  let age = document.getElementById('age');
+  age.innerHTML = v.age;
+
+  let email = document.getElementById('email');
+  email.innerHTML = v.email;
+  
+  let gender = document.getElementById('gender');
+  gender.innerHTML = v.gender;
+
+  let city = document.getElementById('city');
+  city.innerHTML = v.city; 
+  
+  });
+
+</script>
+<button type = "button" class = "btn btn-primary" onclick = "window.location.href='user_community.html'">go back to home page</button>
+</body>
+</html>
